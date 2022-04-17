@@ -1,0 +1,48 @@
+# tools
+compile_commands.json
+
+# build dirs
+/build/
+/.deps/
+/tmp/
+/.clangd/
+/.cache/clangd/
+/.ccls-cache/
+/.clang-tidy
+
+# object files
+*.o
+*.obj
+
+# libraries
+*.a
+*.lib
+*.la
+*.lo
+
+# shared objects
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# executables
+*.out
+*.exe
+
+# cmake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+_deps
+
+# gcc coverage
+*.gcno
+*.gcda
+*.gcov

@@ -1,0 +1,68 @@
+# see https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+Language: Cpp
+BasedOnStyle: chromium
+
+# these settings are mirrored in .editorconfig, keep them in sync
+UseTab: Never
+IndentWidth: 4
+ContinuationIndentWidth: 4
+ColumnLimit: 80
+
+# align macros definitions after to the right
+#
+# define SHORT_NAME       42
+# define LONGER_NAME      0x007f
+# define EVEN_LONGER_NAME (2)
+# define foo(x)           (x * x)
+# define bar(y, z)        (y + z)
+#
+AlignConsecutiveMacros: Consecutive
+
+# even empty function shouldn't be inlined
+#
+# int f() {
+# }
+#
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+# function arguments will either all be on the same line or will have one line
+# each
+#
+# void f() {
+#     f(aaaaaaaaaaaaaaaaaaaa,
+#       aaaaaaaaaaaaaaaaaaaa,
+#       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+# }
+#
+BinPackArguments: false
+
+# binary operators come at the beginning of the line
+#
+# bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#                     + aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#                 == aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#             && aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#                    > ccccccccccccccccccccccccccccccccccccccccc;
+#
+BreakBeforeBinaryOperators: NonAssignment
+
+# sort include blocks
+IncludeBlocks: Regroup
+
+# indent preprocessor directives
+#
+# #if FOO
+# # if BAR
+# #  include <foo>
+# # endif
+# #endif
+#
+IndentPPDirectives: AfterHash
+
+# indent width of the above preprocessor directives
+PPIndentWidth: 1
+
+# align pointers to the right, C style
+PointerAlignment: Right
+...

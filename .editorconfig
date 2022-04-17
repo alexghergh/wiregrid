@@ -1,0 +1,27 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+root = true
+
+# some of the settings here for C files are mirrored in .clang-format, keep
+# them in sync
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+
+# CMake
+# the CMake project itself uses two spaces:
+# https://gitlab.kitware.com/cmake/cmake/-/blob/master/.editorconfig
+[{CMake*,*.cmake,*.cmake.in}]
+indent_size = 2
+
+# C, cpp, header files
+[*.{c,cpp,h}]
+max_line_length = 80
+
+# yml files (workflows)
+[*.{yml,yaml}]
+indent_size = 2

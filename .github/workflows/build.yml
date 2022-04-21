@@ -1,8 +1,6 @@
 name: Build
 
-on:
-  push:
-    branches: [ 'main' ]
+on: push
 
 jobs:
   build-ubuntu-macos:
@@ -43,3 +41,39 @@ jobs:
         env:
           CC: ${{ matrix.cc }}
         run: ${{ github.workspace }}/ci/build.sh
+
+  build-windows:
+    name: Build on ${{ matrix.os }} 64-bit (${{ matrix.config }} config)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-latest ]
+        config: [ MSVC, MINGW ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v1.12
+        with:
+          cmake-version: '3.18.x'
+
+      - name: Setup Microsoft Visual Studio Compiler
+        if: matrix.config == 'MSVC'
+        uses: ilammy/msvc-dev-cmd@v1
+
+        # although msys2 is available by default, it has certain issues
+        # see github.com/msys2/setup-msys2
+      - name: Setup MSYS2 (MinGW)
+        if: matrix.config == 'MINGW'
+        uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: gcc
+          # make sure to keep the location in sync with ci/build-windows.ps1
+          location: D:\
+
+      - name: Build
+        env:
+          CONFIG: ${{ matrix.config }}
+        run: powershell ${{ github.workspace }}\ci\build-windows.ps1

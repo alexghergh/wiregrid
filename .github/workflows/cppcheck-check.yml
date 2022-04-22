@@ -6,15 +6,10 @@ jobs:
   cppcheck-check:
     runs-on: ubuntu-latest
     steps:
-      # check out the repo
       - uses: actions/checkout@v3
 
-      # install cppcheck
-      - name: install cppcheck
-        run: |
-          sudo apt-get install -y -q cppcheck
+      - name: Install cppcheck
+        run: sudo apt-get install -y -q cppcheck
 
-      # run cppcheck
-      - name: run cppcheck
-        run: |
-          "${{ github.workspace }}/.github/scripts/run-cppcheck.sh"
+      - name: Run cppcheck
+        run: ${{ github.workspace }}/.github/scripts/run-cppcheck.sh

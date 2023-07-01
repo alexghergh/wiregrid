@@ -1,0 +1,22 @@
+name: clang-tidy check
+
+# currently only works on pull requests
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  clang-tidy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ZedThree/clang-tidy-review@v0.8.2
+        id: review
+        with:
+          cmake_command: cmake -B build/ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
+          build_dir: build/
+
+      - if: steps.review.outputs.total_comments > 0
+        run: exit 1

@@ -1,0 +1,114 @@
+---
+MainSourceFile:  '/home/alex/projects/test-repo/./src/main.c'
+Diagnostics:
+  - DiagnosticName:  llvmlibc-restrict-system-libc-headers
+    DiagnosticMessage:
+      Message:         system include stdio.h not allowed
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      0
+      Replacements:
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          Offset:          0
+          Length:          19
+          ReplacementText: ''
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+  - DiagnosticName:  cppcoreguidelines-init-variables
+    DiagnosticMessage:
+      Message:         'variable ''x'' is not initialized'
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      74
+      Replacements:
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          Offset:          75
+          Length:          0
+          ReplacementText: ' = 0'
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+  - DiagnosticName:  altera-unroll-loops
+    DiagnosticMessage:
+      Message:         'kernel performance could be improved by unrolling this loop with a ''#pragma unroll'' directive'
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      82
+      Replacements:    []
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+  - DiagnosticName:  clang-diagnostic-parentheses
+    DiagnosticMessage:
+      Message:         using the result of an assignment as a condition without parentheses
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      122
+      Replacements:    []
+      Ranges:
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          FileOffset:      120
+          Length:          5
+    Notes:
+      - Message:         place parentheses around the assignment to silence this warning
+        FilePath:        '/home/alex/projects/test-repo/src/main.c'
+        FileOffset:      122
+        Replacements:
+          - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+            Offset:          120
+            Length:          0
+            ReplacementText: '('
+          - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+            Offset:          125
+            Length:          0
+            ReplacementText: ')'
+      - Message:         'use ''=='' to turn this assignment into an equality comparison'
+        FilePath:        '/home/alex/projects/test-repo/src/main.c'
+        FileOffset:      122
+        Replacements:
+          - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+            Offset:          122
+            Length:          1
+            ReplacementText: '=='
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+  - DiagnosticName:  google-readability-braces-around-statements
+    DiagnosticMessage:
+      Message:         statement should be inside braces
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      126
+      Replacements:
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          Offset:          126
+          Length:          0
+          ReplacementText: ' {'
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          Offset:          149
+          Length:          0
+          ReplacementText: '} '
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+  - DiagnosticName:  llvm-else-after-return
+    DiagnosticMessage:
+      Message:         'do not use ''else'' after ''continue'''
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      149
+      Replacements:
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          Offset:          149
+          Length:          16
+          ReplacementText: '        x++'
+      Ranges:
+        - FilePath:        '/home/alex/projects/test-repo/src/main.c'
+          FileOffset:      149
+          Length:          4
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+  - DiagnosticName:  google-readability-braces-around-statements
+    DiagnosticMessage:
+      Message:         statement should be inside braces
+      FilePath:        '/home/alex/projects/test-repo/src/main.c'
+      FileOffset:      153
+      Replacements:    []
+    Notes:
+      - Message:         this fix will not be applied because it overlaps with another fix
+        FilePath:        ''
+        FileOffset:      0
+        Replacements:    []
+    Level:           Warning
+    BuildDirectory:  '/home/alex/projects/test-repo'
+...
